@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply font-firaSans;
+  }
+  html {
+    scroll-behavior: smooth !important;
+  }
+}
+
+body {
+  color: #173d33;
+  background: #f3f5fa;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.64px;
+}
+
+@layer components {
+  .container {
+    @apply my-0 mx-auto;
+    @apply max-sm:px-2;
+    @apply max-lg:max-w-full max-lg:px-5;
+    @apply lg:max-w-[768px] lg:px-7;
+    @apply xl:max-w-[1440px] xl:px-[100px];
+  }
+
+  .section {
+    @apply py-14 my-0 w-full;
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
