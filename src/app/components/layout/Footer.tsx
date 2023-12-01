@@ -39,6 +39,7 @@ const Footer = () => {
             </Link>
             <Link
               href='#main'
+              aria-label='Go to main section'
               className='rounded-full bg-medium-green p-[8px] lg:hidden'
             >
               <ArrowIcon className='h-[16px] w-[16px] rotate-90 stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
@@ -71,6 +72,7 @@ const Footer = () => {
             </ul>
             <Link
               href='#main'
+              aria-label='Go to main section'
               className='group rounded-full bg-medium-green p-[8px] transition-colors duration-300 ease-in-out hover:bg-primary-green focus:bg-primary-green max-lg:hidden'
             >
               <ArrowIcon className='h-[16px] w-[16px] rotate-90 stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
