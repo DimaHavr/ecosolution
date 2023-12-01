@@ -1,12 +1,17 @@
 'use client'
+
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import { Navigation } from 'swiper/modules'
-import { SwiperSlide, Swiper } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
 import { casesData } from '@/utils/json/data'
+
 import { ArrowIcon } from './svgr'
 
 const CasesSection = () => {
@@ -17,15 +22,15 @@ const CasesSection = () => {
   return (
     <section
       id='cases'
-      className='pt-[120px] max-lg:pt-[35px] max-xl:pt-[100px]'
+      className='pt-[120px] max-xl:pt-[100px] max-lg:pt-[35px]'
     >
       <div className='container flex flex-col gap-[120px] max-xl:gap-[38px] max-lg:gap-[24px]'>
         <div className='relative  flex justify-between max-lg:flex-col max-lg:gap-[24px]'>
-          <p className=' uppercase text-[48px] max-lg:text-[28px] max-lg:leading-[28px] max-xl:text-[36px] max-xl:leading-[36px] max-lg:w-[264px] leading-[48px] font-oswald max-xl:w-[264px] w-[398px] text-start'>
+          <p className=' w-[398px] text-start font-oswald text-[48px] uppercase leading-[48px] max-xl:w-[264px] max-xl:text-[36px] max-xl:leading-[36px] max-lg:w-[264px] max-lg:text-[28px] max-lg:leading-[28px]'>
             Successful cases of our company
           </p>
-          <div className='absolute top-0 left-1/2 translate-x-1/2 border-l-[1px] text-medium-green h-full max-lg:hidden'></div>
-          <div className='flex items-end lg:gap-[189px]  max-lg:justify-between xl:gap-[131px]'>
+          <div className='absolute left-1/2 top-0 h-full translate-x-1/2 border-l-[1px] text-medium-green max-lg:hidden' />
+          <div className='flex items-end max-lg:justify-between  lg:gap-[125px] xl:gap-[131px]'>
             <p className='text-[28px] font-light'>
               {currentSlide < 9 ? `0${currentSlide + 1}` : currentSlide + 1}
               <span className=' text-mid-grey'>
@@ -35,12 +40,20 @@ const CasesSection = () => {
                   : casesData.length}
               </span>
             </p>
-            <div className='flex gap-[24px] max-lg:gap-[10px] max-xl:gap-[12px]'>
-              <button className='slider-prev-cases-section-btn group p-[24px] max-sm:p-[8px] max-xl:p-[15px] border-[1px] rounded-full transition-colors ease-in-out duration-300 hover:border-medium-green focus:border-medium-green'>
-                <ArrowIcon className='w-[36px] h-[36px] stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
+            <div className='flex gap-[24px] max-xl:gap-[12px] max-lg:gap-[10px]'>
+              <button
+                aria-label='Prev slide'
+                type='button'
+                className='slider-prev-cases-section-btn group rounded-full border-[1px] p-[24px] transition-colors duration-300 ease-in-out hover:border-medium-green focus:border-medium-green max-xl:p-[15px] max-sm:p-[8px]'
+              >
+                <ArrowIcon className='h-[36px] w-[36px] stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
               </button>
-              <button className='group slider-next-cases-section-btn p-[24px] max-sm:p-[8px] max-xl:p-[15px] border-[1px] rounded-full transition-colors ease-in-out duration-300 hover:border-medium-green focus:border-medium-green'>
-                <ArrowIcon className='w-[36px] h-[36px] rotate-180 stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
+              <button
+                aria-label='Next slide'
+                type='button'
+                className='slider-next-cases-section-btn group rounded-full border-[1px] p-[24px] transition-colors duration-300 ease-in-out hover:border-medium-green focus:border-medium-green max-xl:p-[15px] max-sm:p-[8px]'
+              >
+                <ArrowIcon className='h-[36px] w-[36px] rotate-180 stroke-primary-green transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
               </button>
             </div>
           </div>
@@ -79,46 +92,40 @@ const CasesSection = () => {
         >
           {casesData.map(item => {
             return (
-              <SwiperSlide key={item.date}>
-                <div className='flex justify-center'>
-                  <div className='w-[596px] max-lg:w-[320px] max-xl:w-[343px] max-sm:w-full'>
+              <SwiperSlide key={item.id}>
+                <Link href='/#' className='flex justify-center'>
+                  <div className='group h-auto w-[596px] max-xl:w-[343px] max-lg:w-[320px] max-sm:w-full'>
                     <Image
-                      className='w-full h-[295px] max-xl:h-[170px]'
+                      className='h-[295px] w-full max-xl:h-[170px]'
                       src={item.img}
                       width={596}
                       height={294}
-                      alt='Maximize circle'
+                      alt={item.imgAlt}
                     />
-                    <div className='w-full bg-light-grey pt-[38px] max-lg:gap-[11px] px-[48px] pb-[36px] max-xl:gap-[14px] max-xl:pb-[12px] max-xl:px-[12px] max-xl:pt-[26px] max-lg:pb-[12px]  flex flex-col gap-[33px]'>
-                      <div className='flex justify-between items-center'>
-                        <div className='flex flex-col max-xl:max-w-[230px] max-xl:h-[72px]'>
-                          <p className='max-lg:max-w-[175px] text-xl max-xl:text-lg  max-lg:text-md text-start max-lg:leading-[20px] max-lg:tracking-[-0.72px] max-xl:tracking-tighter-[-0.8px]'>
+                    <div className='flex w-full flex-col gap-[33px] bg-light-grey px-[48px] pb-[36px] pt-[38px] max-xl:gap-[14px] max-xl:px-[12px] max-xl:pb-[12px]  max-xl:pt-[26px] max-lg:gap-[11px] max-lg:pb-[12px]'>
+                      <div className='flex items-center justify-between'>
+                        <div className='flex flex-col max-xl:h-[72px] max-xl:max-w-[230px]'>
+                          <p className='max-xl:tracking-tighter-[-0.8px] text-start text-xl  max-xl:text-lg max-lg:max-w-[175px] max-lg:text-md max-lg:leading-[20px] max-lg:tracking-[-0.72px]'>
                             {item.address}
                           </p>
-                          <p className='max-lg:max-w-[175px] text-xl max-xl:text-lg  max-lg:text-md text-start max-lg:leading-[20px] max-lg:tracking-[-0.72px] max-xl:tracking-tighter-[-0.8px]'>
+                          <p className='max-xl:tracking-tighter-[-0.8px] text-start text-xl  max-xl:text-lg max-lg:max-w-[175px] max-lg:text-md max-lg:leading-[20px] max-lg:tracking-[-0.72px]'>
                             {item.company}
                           </p>
                         </div>
-                        <button className='p-[16px] bg-medium-green rounded-full rotate-180'>
-                          <Image
-                            className='-rotate-45'
-                            src={'/icons/arrow-right.svg'}
-                            width={28}
-                            height={28}
-                            alt='Arrow right-up'
-                          />
-                        </button>
+                        <div className='rotate-180 rounded-full bg-medium-green p-[16px] transition-colors duration-300 ease-in-out group-hover:bg-primary-green group-focus:bg-primary-green'>
+                          <ArrowIcon className='h-[28px] w-[28px] -rotate-45 stroke-primary-green stroke-[2px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
+                        </div>
                       </div>
                       <div className='flex flex-col gap-[24px] max-xl:gap-[13px]'>
-                        <div className=' border-b-[1px] text-medium-green w-full'></div>
-                        <div className='relative flex justify-between items-center max-lg:text-xs max-xl:text-sm line-clamp-1'>
+                        <div className=' w-full border-b-[1px] text-medium-green' />
+                        <div className='relative line-clamp-1 flex items-center justify-between max-xl:text-sm max-lg:text-xs'>
                           <p>{item.desc}</p>
                           <p>{item.date}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             )
           })}

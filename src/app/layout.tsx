@@ -1,10 +1,12 @@
-import type { Metadata } from 'next'
-import { Oswald, Fira_Sans } from 'next/font/google'
 import './globals.css'
-import { Header } from './components/layout/Header'
-import Footer from './components/layout/Footer'
+
+import type { Metadata } from 'next'
+import { Fira_Sans, Oswald } from 'next/font/google'
 import React from 'react'
 import { Toaster } from 'react-hot-toast'
+
+import Footer from './components/layout/Footer'
+import { Header } from './components/layout/Header'
 
 const oswald = Oswald({
   weight: ['300', '400', '700', '500', '600'],

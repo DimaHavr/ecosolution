@@ -1,9 +1,14 @@
-import AboutSection from './components/AboutSection'
-import ContactUsSection from './components/ContactUsSection'
-import ElectricitySection from './components/ElectricitySection'
-import FaqSection from './components/FaqSection'
+import dynamic from 'next/dynamic'
+
 import MainSection from './components/MainSection'
-import CasesSection from './components/CasesSection'
+
+const FaqSection = dynamic(() => import('./components/FaqSection'))
+const AboutSection = dynamic(() => import('./components/AboutSection'))
+const CasesSection = dynamic(() => import('./components/CasesSection'))
+const ContactUsSection = dynamic(() => import('./components/ContactUsSection'))
+const ElectricitySection = dynamic(
+  () => import('./components/ElectricitySection'),
+)
 
 export default function Home() {
   return (

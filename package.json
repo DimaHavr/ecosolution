@@ -1,6 +1,7 @@
 {
   "name": "ecosolution",
   "version": "0.1.0",
+  "author": "https://github.com/dimahavr",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,8 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^14.0.3",
-    "@svgr/webpack": "^8.1.0",
     "formik": "^2.4.5",
     "formik-persist-values": "^1.4.1",
     "framer-motion": "^10.16.5",
@@ -18,16 +17,28 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
+    "sharp": "^0.33.0",
     "swiper": "^11.0.5",
     "yup": "^1.3.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.0.3",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-testing-library": "^6.2.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "postcss": "^8",
     "prettier": "^3.1.0",
     "tailwindcss": "^3.3.0",

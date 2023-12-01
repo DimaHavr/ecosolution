@@ -27,7 +27,7 @@ body {
     @apply max-sm:px-2;
     @apply max-lg:max-w-full max-lg:px-5;
     @apply lg:max-w-[768px] lg:px-7;
-    @apply xl:max-w-[1440px] xl:px-[100px];
+    @apply xl:max-w-[1242px] xl:px-[24px];
   }
 
   .section {

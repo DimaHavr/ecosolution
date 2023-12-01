@@ -1,12 +1,13 @@
 'use client'
 
-import useCustomScrollbarLock from '@/hooks/useCustomScrollbarLock'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useCallback, useRef } from 'react'
-import React from 'react'
-import { ArrowIcon, CloseIcon, FacebookIcon, InstagramIcon } from '../svgr'
+import React, { useCallback, useRef } from 'react'
+
+import useCustomScrollbarLock from '@/hooks/useCustomScrollbarLock'
 import useGetHash from '@/hooks/useGetHash'
+
+import { ArrowIcon, CloseIcon, FacebookIcon, InstagramIcon } from '../svgr'
 
 interface MobileMenuProps {
   toggleMobileMenu: () => void
@@ -47,35 +48,35 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
         initial={{ x: 500 }}
         animate={{ x: 0, transition: { duration: 0.3 } }}
         exit={{ x: 500, transition: { duration: 0.3 } }}
-        className='fixed top-0 right-0 z-10 flex w-[365px] max-md:w-[320px] rounded-[25px] flex-col justify-between m-[30px] backdrop-blur-[12.5px] bg-bg-menu p-[24px] max-md:m-[20px] max-sm:w-[280px] max-sm:p-[14px]'
+        className='fixed right-0 top-0 z-10 m-[30px] flex w-[365px] flex-col justify-between rounded-[25px] bg-bg-menu p-[24px] backdrop-blur-[12.5px] max-md:m-[20px] max-md:w-[320px] max-sm:w-[280px] max-sm:p-[14px]'
       >
         <div className='flex h-[80dvh] flex-col overflow-auto'>
-          <div className='flex items-center text-white mb-[6px]'>
+          <div className='mb-[6px] flex items-center text-white'>
             <button
               className='group flex items-center '
               type='button'
               onClick={toggleMobileMenu}
             >
-              <CloseIcon className='stroke-[1.5px] stroke-white transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
+              <CloseIcon className='stroke-white stroke-[1.5px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green' />
               <p className='transition-colors duration-300 ease-in-out group-hover:text-medium-green group-focus:text-medium-green'>
                 close
               </p>
             </button>
           </div>
-          <div className='border-b-[1px] text-grey w-full mb-[16px]'></div>
-          <ul className='flex flex-col gap-[8px] justify-start'>
+          <div className='mb-[16px] w-full border-b-[1px] text-grey' />
+          <ul className='flex flex-col justify-start gap-[8px]'>
             <li>
               <Link
-                className={`transition-colors duration-300 ease-in-out group hover:text-medium-green focus:text-medium-green text-xl flex items-center gap-[8px] ${
+                className={`group flex items-center gap-[8px] text-xl transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green ${
                   activeHash === 'main' ? 'text-white' : 'text-grey'
                 }`}
                 onClick={toggleMobileMenu}
-                href={'#main'}
+                href='#main'
               >
                 <p>Main</p>
                 <span className='rotate-180'>
                   <ArrowIcon
-                    className={`-rotate-45 w-[16px] h-[16px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
+                    className={`h-[16px] w-[16px] -rotate-45 transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
                       activeHash === 'main'
                         ? 'stroke-white'
                         : 'stroke-primary-green'
@@ -86,16 +87,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
             </li>
             <li>
               <Link
-                className={`transition-colors duration-300 ease-in-out group hover:text-medium-green focus:text-medium-green text-xl flex items-center gap-[8px] ${
+                className={`group flex items-center gap-[8px] text-xl transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green ${
                   activeHash === 'about' ? 'text-white' : 'text-grey'
                 }`}
                 onClick={toggleMobileMenu}
-                href={'#about'}
+                href='#about'
               >
                 <p>About</p>
                 <span className='rotate-180'>
                   <ArrowIcon
-                    className={`-rotate-45 w-[16px] h-[16px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
+                    className={`h-[16px] w-[16px] -rotate-45 transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
                       activeHash === 'about'
                         ? 'stroke-white'
                         : 'stroke-primary-green'
@@ -106,16 +107,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
             </li>
             <li>
               <Link
-                className={`transition-colors duration-300 ease-in-out group hover:text-medium-green focus:text-medium-green text-xl flex items-center gap-[8px] ${
+                className={`group flex items-center gap-[8px] text-xl transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green ${
                   activeHash === 'cases' ? 'text-white' : 'text-grey'
                 }`}
                 onClick={toggleMobileMenu}
-                href={'#cases'}
+                href='#cases'
               >
                 <p>Cases</p>
                 <span className='rotate-180'>
                   <ArrowIcon
-                    className={`-rotate-45 w-[16px] h-[16px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
+                    className={`h-[16px] w-[16px] -rotate-45 transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
                       activeHash === 'cases'
                         ? 'stroke-white'
                         : 'stroke-primary-green'
@@ -126,16 +127,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
             </li>
             <li>
               <Link
-                className={`transition-colors duration-300 ease-in-out group hover:text-medium-green focus:text-medium-green text-xl flex items-center gap-[8px] ${
+                className={`group flex items-center gap-[8px] text-xl transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green ${
                   activeHash === 'faq' ? 'text-white' : 'text-grey'
                 }`}
                 onClick={toggleMobileMenu}
-                href={'#faq'}
+                href='#faq'
               >
                 <p className='uppercase'>Faq</p>
                 <span className='rotate-180'>
                   <ArrowIcon
-                    className={`-rotate-45 w-[16px] h-[16px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
+                    className={`h-[16px] w-[16px] -rotate-45 transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
                       activeHash === 'faq'
                         ? 'stroke-white'
                         : 'stroke-primary-green'
@@ -146,16 +147,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
             </li>
             <li>
               <Link
-                className={`transition-colors duration-300 ease-in-out group hover:text-medium-green focus:text-medium-green text-xl flex items-center gap-[8px] ${
+                className={`group flex items-center gap-[8px] text-xl transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green ${
                   activeHash === 'contacts' ? 'text-white' : 'text-grey'
                 }`}
                 onClick={toggleMobileMenu}
-                href={'#contacts'}
+                href='#contacts'
               >
                 <p className='capitalize'> Contact us</p>
                 <span className='rotate-180'>
                   <ArrowIcon
-                    className={`-rotate-45 w-[16px] h-[16px] transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
+                    className={`h-[16px] w-[16px] -rotate-45 transition-colors duration-300 ease-in-out group-hover:stroke-medium-green group-focus:stroke-medium-green ${
                       activeHash === 'contacts'
                         ? 'stroke-white'
                         : 'stroke-primary-green'
@@ -169,22 +170,24 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ toggleMobileMenu }) => {
         <ul className='flex  gap-[8px]'>
           <li>
             <a
+              aria-label='Facebook link'
               className='text-xl'
               href='https://facebook.com'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <FacebookIcon className='stroke-[1.5px] stroke-white transition-colors duration-300 ease-in-out hover:stroke-medium-green focus:stroke-medium-green' />
+              <FacebookIcon className='stroke-white stroke-[1.5px] transition-colors duration-300 ease-in-out hover:stroke-medium-green focus:stroke-medium-green' />
             </a>
           </li>
           <li>
             <a
+              aria-label='Instagram link'
               className='text-xl'
               href='https://instagram.com'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <InstagramIcon className='stroke-[1.5px] stroke-white transition-colors duration-300 ease-in-out hover:stroke-medium-green focus:stroke-medium-green' />
+              <InstagramIcon className='stroke-white stroke-[1.5px] transition-colors duration-300 ease-in-out hover:stroke-medium-green focus:stroke-medium-green' />
             </a>
           </li>
         </ul>

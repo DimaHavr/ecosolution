@@ -1,10 +1,12 @@
 'use client'
+
 import { AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
-import MobileMenu from './MobileMenu'
+
 import { BurgerMenuIcon, EcosolutionCenterIcon } from '../svgr'
+import MobileMenu from './MobileMenu'
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
@@ -46,12 +48,12 @@ export const Header = () => {
       }`}
     >
       <nav
-        className='container flex w-full items-center xl:py-[24px] max-xl:pt-[36px] max-xl:pb-[24px] justify-between'
+        className='container flex w-full items-center justify-between max-xl:pb-[24px] max-xl:pt-[36px] xl:py-[24px]'
         aria-label='Global'
       >
         <Link
           href='/'
-          className='flex group justify-center items-end gap-1 transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green'
+          className='group flex items-end justify-center gap-1 transition-colors duration-300 ease-in-out hover:text-medium-green focus:text-medium-green'
         >
           <Image
             src='/icons/logo/ecosolution.svg'
@@ -69,23 +71,25 @@ export const Header = () => {
             priority
           />
         </Link>
-        <div className='flex justify-center items-center gap-3'>
+        <div className='flex items-center justify-center gap-3'>
           <button
+            aria-label='Toggle burger menu'
+            type='button'
             onClick={toggleMobileMenu}
-            className='flex justify-center p-[11px] items-center bg-light-green rounded-full transition-colors ease-in-out duration-300 hover:bg-medium-green focus:bg-medium-green'
+            className='flex items-center justify-center rounded-full bg-light-green p-[11px] transition-colors duration-300 ease-in-out hover:bg-medium-green focus:bg-medium-green'
           >
             <BurgerMenuIcon />
           </button>
           <Link
-            href={'#contacts'}
-            className='flex max-[515px]:hidden group items-center gap-[6px] transition-colors ease-in-out duration-300 hover:bg-primary-green focus:bg-primary-green bg-medium-green py-[10px] px-4 rounded-[500px]'
+            href='#contacts'
+            className='group flex items-center gap-[6px] rounded-[500px] bg-medium-green px-4 py-[10px] transition-colors duration-300 ease-in-out hover:bg-primary-green focus:bg-primary-green max-[515px]:hidden'
           >
-            <span className='transition-colors ease-in-out duration-300 group-hover:text-medium-green group-focus:text-medium-green'>
+            <span className='transition-colors duration-300 ease-in-out group-hover:text-medium-green group-focus:text-medium-green'>
               Get in touch
             </span>
-            <span className='w-[14px] transition-colors ease-in-out duration-300 group-hover:bg-medium-green group-focus:bg-medium-green flex justify-center items-center -rotate-90  h-[14px] bg-primary-green rounded-full'>
+            <span className='flex h-[14px] w-[14px] -rotate-90 items-center justify-center rounded-full bg-primary-green transition-colors duration-300  ease-in-out group-hover:bg-medium-green group-focus:bg-medium-green'>
               <Image
-                src={'/icons/arrow-right.svg'}
+                src='/icons/arrow-right.svg'
                 width={10}
                 height={10}
                 alt='Arrow bottom'

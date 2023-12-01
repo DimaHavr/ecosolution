@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 'use client'
 
 import { ErrorMessage, Field, Form, Formik } from 'formik'
@@ -43,6 +45,7 @@ const ContactUsForm = () => {
     values.email = ''
     values.number = ''
     values.message = ''
+
     sessionStorage.removeItem('contact-form')
     toast.success('Очікуйте на контакт з менеджером...', {
       style: {
@@ -54,7 +57,7 @@ const ContactUsForm = () => {
   }
 
   return (
-    <div className='w-[596px] max-xl:w-[342px] max-lg:w-full bg-light-grey xl:p-[48px] max-lg:px-[12px] max-xl:px-[24px] max-xl:py-[36px]'>
+    <div className='w-[596px] bg-light-grey max-xl:w-[342px] max-xl:px-[24px] max-xl:py-[36px] max-lg:w-full max-lg:px-[12px] xl:p-[48px]'>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -62,14 +65,16 @@ const ContactUsForm = () => {
       >
         {({ isSubmitting, touched, errors, isValidating, dirty, isValid }) => (
           <Form className='flex w-full flex-col items-end justify-center gap-[28px] max-xl:gap-[26px]'>
-            <div className='relative w-full flex flex-col gap-[12px] max-xl:gap-[7px]'>
-              <label>* Full name:</label>
+            <div className='relative flex w-full flex-col gap-[12px] max-xl:gap-[7px]'>
+              <label htmlFor='name'>* Full name:</label>
               <Field
                 type='text'
                 id='name'
                 name='name'
-                className={`h-[33px] text-lg max-xl:text-md w-full border-b-[1px] border-medium-green bg-light-grey pb-[8px] ${
-                  touched.name && errors.name ? 'border-light-red' : ''
+                className={`h-[33px] w-full border-b-[1px]  bg-light-grey pb-[8px] text-lg max-xl:text-md ${
+                  touched.name && errors.name
+                    ? 'border-light-red'
+                    : 'border-medium-green'
                 }`}
                 autoComplete='off'
                 placeholder='John Rosie'
@@ -80,14 +85,16 @@ const ContactUsForm = () => {
                 className=' absolute bottom-[-26px] right-[-4px] text-xs font-normal tracking-[-0.48px] text-light-red'
               />
             </div>
-            <div className='relative w-full flex flex-col gap-[12px] max-xl:gap-[7px]'>
-              <label>* Email:</label>
+            <div className='relative flex w-full flex-col gap-[12px] max-xl:gap-[7px]'>
+              <label htmlFor='email'>* Email:</label>
               <Field
                 type='email'
                 id='email'
                 name='email'
-                className={`h-[33px] text-lg max-xl:text-md w-full border-b-[1px] border-medium-green bg-light-grey pb-[8px] ${
-                  touched.email && errors.email ? 'border-light-red' : ''
+                className={`h-[33px] w-full border-b-[1px]  bg-light-grey pb-[8px] text-lg max-xl:text-md ${
+                  touched.email && errors.email
+                    ? 'border-light-red'
+                    : 'border-medium-green'
                 }`}
                 autoComplete='off'
                 placeholder='johnrosie@gmail.com'
@@ -98,14 +105,16 @@ const ContactUsForm = () => {
                 className='absolute bottom-[-26px] right-[-4px] text-xs font-normal tracking-[-0.48px] text-light-red'
               />
             </div>
-            <div className='relative w-full flex flex-col gap-[12px] max-xl:gap-[7px]'>
-              <label>* Phone:</label>
+            <div className='relative flex w-full flex-col gap-[12px] max-xl:gap-[7px]'>
+              <label htmlFor='number'>* Phone:</label>
               <Field
                 type='text'
                 id='number'
                 name='number'
-                className={`h-[33px] text-lg max-xl:text-md w-full border-b-[1px] border-medium-green bg-light-grey pb-[8px] ${
-                  touched.number && errors.number ? 'border-light-red' : ''
+                className={`h-[33px] w-full border-b-[1px]  bg-light-grey pb-[8px] text-lg max-xl:text-md ${
+                  touched.number && errors.number
+                    ? 'border-light-red'
+                    : 'border-medium-green'
                 }`}
                 autoComplete='off'
                 placeholder='380961234567'
@@ -117,13 +126,13 @@ const ContactUsForm = () => {
               />
             </div>
 
-            <div className='relative w-full flex flex-col gap-[12px] max-xl:gap-[7px]'>
-              <label>Message:</label>
+            <div className='relative flex w-full flex-col gap-[12px] max-xl:gap-[7px]'>
+              <label htmlFor='message'>Message:</label>
               <Field
                 as='textarea'
                 id='message'
                 name='message'
-                className='h-[149px] max-xl:h-[139px] text-lg max-xl:text-md w-full border-b-[1px] border-medium-green bg-light-grey pb-[8px]'
+                className='h-[149px] w-full border-b-[1px] border-medium-green bg-light-grey pb-[8px] text-lg max-xl:h-[139px] max-xl:text-md'
                 autoComplete='off'
                 placeholder='My message...'
               />
@@ -135,15 +144,15 @@ const ContactUsForm = () => {
                 !isValid || !dirty || isValidating
                   ? 'pointer-events-none opacity-70'
                   : ''
-              } flex  group items-center gap-[6px] border-solid text-medium-green border-[1px] transition-colors ease-in-out duration-300 hover:bg-primary-green focus:bg-primary-green p-1 pl-4 rounded-[500px]`}
+              } group  flex items-center gap-[6px] rounded-[500px] border-[1px] border-solid p-1 pl-4 text-medium-green transition-colors duration-300 ease-in-out hover:bg-primary-green focus:bg-primary-green`}
             >
-              <span className='transition-colors ease-in-out text-primary-green  duration-300 group-hover:text-medium-green group-focus:text-medium-green'>
+              <span className='text-primary-green transition-colors duration-300  ease-in-out group-hover:text-medium-green group-focus:text-medium-green'>
                 Send
               </span>
-              <span className='bg-medium-green p-2 rounded-full'>
+              <span className='rounded-full bg-medium-green p-2'>
                 <Image
                   className='rotate-180'
-                  src={'/icons/arrow-right.svg'}
+                  src='/icons/arrow-right.svg'
                   width={16}
                   height={16}
                   alt='Arrow bottom'
