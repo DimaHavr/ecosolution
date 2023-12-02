@@ -68,7 +68,7 @@ export default function RootLayout({
       <body className={`${oswald.variable} ${firaSans.variable}`}>
         <Toaster />
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
